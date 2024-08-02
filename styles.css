@@ -67,4 +67,29 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+} #about {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: center;
 }
+
+.social-media {
+    margin-top: 15px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.social-media a:hover {
+    background: #0056b3;
+}
+
