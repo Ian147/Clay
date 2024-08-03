@@ -4,19 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berita Terbaru - Update Harian untuk Anda</title>
-    <meta name="description" content="Dapatkan berita terbaru, analisis mendalam, dan informasi terkini tentang berbagai topik di sini.">
-    <meta name="keywords" content="berita, berita terbaru, berita terkini, informasi, analisis, update harian">
+    <meta name="description" content="Dapatkan berita terbaru, analisis mendalam, dan informasi terkini tentang berbagai topik seperti olahraga, crypto, viral, gaya hidup, dan info selebritis.">
+    <meta name="keywords" content="berita, berita terbaru, berita terkini, olahraga, crypto, viral, gaya hidup, selebritis, informasi">
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://www.beritaterbaru.com/">
     <meta name="author" content="Nama Anda">
     <meta property="og:title" content="Berita Terbaru - Update Harian untuk Anda" />
-    <meta property="og:description" content="Dapatkan berita terbaru, analisis mendalam, dan informasi terkini tentang berbagai topik di sini." />
+    <meta property="og:description" content="Dapatkan berita terbaru, analisis mendalam, dan informasi terkini tentang berbagai topik." />
     <meta property="og:image" content="https://www.beritaterbaru.com/images/berita.jpg" />
     <meta property="og:url" content="https://www.beritaterbaru.com/" />
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Berita Terbaru - Update Harian untuk Anda">
-    <meta name="twitter:description" content="Dapatkan berita terbaru, analisis mendalam, dan informasi terkini tentang berbagai topik di sini.">
+    <meta name="twitter:description" content="Dapatkan berita terbaru dan informasi terkini.">
     <meta name="twitter:image" content="https://www.beritaterbaru.com/images/berita.jpg">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .tab {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .tab button {
+            background-color: #f1f1f1;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            margin-right: 5px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .tabcontent {
+            display: none;
+        }
+
+        .news-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .news-item h3 {
+            margin-top: 10px;
+        }
+
+        .news-item p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Night Mode Style */
+        .night-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .night-mode header {
+            background-color: #1a1a1a;
+        }
+
+        .night-mode footer {
+            background-color: #1a1a1a;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -27,9 +142,9 @@
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#news">Berita</a></li>
                     <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>
+            <button id="toggle-theme" onclick="toggleTheme()">🌙</button>
         </div>
     </header>
 
@@ -45,25 +160,68 @@
             <div class="container">
                 <h2>Berita Terbaru</h2>
 
-                <article class="news-item">
-                    <img src="berita1.jpg" alt="Judul Berita 1" loading="lazy">
-                    <h3><a href="berita1.html">Judul Berita 1</a></h3>
-                    <p>Ringkasan singkat tentang berita terbaru ini, memberikan informasi yang menarik dan penting.</p>
-                </article>
+                <div class="tab">
+                    <button class="tablinks active" onclick="openTab(event, 'All')">Semua</button>
+                    <button class="tablinks" onclick="openTab(event, 'Sport')">Olahraga</button>
+                    <button class="tablinks" onclick="openTab(event, 'Crypto')">Crypto</button>
+                    <button class="tablinks" onclick="openTab(event, 'Viral')">Viral</button>
+                    <button class="tablinks" onclick="openTab(event, 'Lifestyle')">Gaya Hidup</button>
+                    <button class="tablinks" onclick="openTab(event, 'Celebrities')">Selebriti</button>
+                </div>
 
-                <article class="news-item">
-                    <img src="berita2.jpg" alt="Judul Berita 2" loading="lazy">
-                    <h3><a href="berita2.html">Judul Berita 2</a></h3>
-                    <p>Ringkasan singkat tentang berita terbaru ini, memberikan informasi yang menarik dan penting.</p>
-                </article>
+                <div id="All" class="tabcontent active">
+                    <article class="news-item">
+                        <img src="berita1.jpg" alt="Judul Berita 1" loading="lazy">
+                        <h3><a href="berita1.html">Judul Berita 1</a></h3>
+                        <p>Ringkasan singkat tentang berita terbaru ini, memberikan informasi yang menarik dan penting.</p>
+                    </article>
+                    <!-- Tambahkan berita lainnya di sini -->
+                </div>
 
-                <article class="news-item">
-                    <img src="berita3.jpg" alt="Judul Berita 3" loading="lazy">
-                    <h3><a href="berita3.html">Judul Berita 3</a></h3>
-                    <p>Ringkasan singkat tentang berita terbaru ini, memberikan informasi yang menarik dan penting.</p>
-                </article>
+                <div id="Sport" class="tabcontent">
+                    <article class="news-item">
+                        <img src="sport1.jpg" alt="Berita Olahraga 1" loading="lazy">
+                        <h3><a href="sport1.html">Berita Olahraga 1</a></h3>
+                        <p>Ringkasan berita olahraga terbaru, analisis pertandingan, dan informasi pemain.</p>
+                    </article>
+                    <!-- Tambahkan berita olahraga lainnya di sini -->
+                </div>
 
-                <!-- Tambahkan lebih banyak berita di sini -->
+                <div id="Crypto" class="tabcontent">
+                    <article class="news-item">
+                        <img src="crypto1.jpg" alt="Berita Crypto 1" loading="lazy">
+                        <h3><a href="crypto1.html">Berita Crypto 1</a></h3>
+                        <p>Informasi terbaru tentang cryptocurrency dan perkembangan pasar.</p>
+                    </article>
+                    <!-- Tambahkan berita crypto lainnya di sini -->
+                </div>
+
+                <div id="Viral" class="tabcontent">
+                    <article class="news-item">
+                        <img src="viral1.jpg" alt="Berita Viral 1" loading="lazy">
+                        <h3><a href="viral1.html">Berita Viral 1</a></h3>
+                        <p>Berita-berita viral yang sedang trending di media sosial.</p>
+                    </article>
+                    <!-- Tambahkan berita viral lainnya di sini -->
+                </div>
+
+                <div id="Lifestyle" class="tabcontent">
+                    <article class="news-item">
+                        <img src="lifestyle1.jpg" alt="Berita Gaya Hidup 1" loading="lazy">
+                        <h3><a href="lifestyle1.html">Berita Gaya Hidup 1</a></h3>
+                        <p>Tips dan informasi tentang gaya hidup sehat dan tren terbaru.</p>
+                    </article>
+                    <!-- Tambahkan berita gaya hidup lainnya di sini -->
+                </div>
+
+                <div id="Celebrities" class="tabcontent">
+                    <article class="news-item">
+                        <img src="celeb1.jpg" alt="Berita Selebriti 1" loading="lazy">
+                        <h3><a href="celeb1.html">Berita Selebriti 1</a></h3>
+                        <p>Berita terbaru tentang selebritis dan kehidupan mereka.</p>
+                    </article>
+                    <!-- Tambahkan berita selebritis lainnya di sini -->
+                </div>
             </div>
         </section>
 
@@ -73,13 +231,6 @@
                 <p>Kami berkomitmen untuk memberikan berita terbaru dan informasi terkini yang terpercaya untuk Anda.</p>
             </div>
         </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2>Kontak Kami</h2>
-                <p>Jika Anda memiliki pertanyaan atau saran, silakan hubungi kami melalui email di info@beritaterbaru.com.</p>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -87,5 +238,41 @@
             <p>&copy; 2024 Berita Terbaru. Semua hak dilindungi.</p>
         </div>
     </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";  
+            }
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";  
+            evt.currentTarget.className += " active";
+        }
+
+        // Set default open tab
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.tablinks.active').click();
+        });
+
+        // Night mode toggle
+        function toggleTheme() {
+            var body = document.body;
+            body.classList.toggle("night-mode");
+            var button = document.getElementById("toggle-theme");
+            if (body.classList.contains("night-mode")) {
+                button.innerHTML = "🌞"; // Change to sun icon for light mode
+            } else {
+                button.innerHTML = "🌙"; // Change to moon icon for night mode
+            }
+        }
+    </script>
 </body>
 </html>
