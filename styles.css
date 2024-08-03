@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 header {
@@ -36,8 +37,32 @@ nav a {
     text-decoration: none;
 }
 
-section {
-    padding: 20px 0;
+.tab {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+    margin-right: 5px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tabcontent {
+    display: none;
 }
 
 .news-item {
@@ -45,6 +70,12 @@ section {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .news-item img {
@@ -65,4 +96,18 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+}
+
+/* Night Mode Style */
+.night-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.night-mode header {
+    background-color: #1a1a1a;
+}
+
+.night-mode footer {
+    background-color: #1a1a1a;
 }
